@@ -1,19 +1,12 @@
 {
-  "version": "5",
-  "dialect": "pg",
+  "version": "7",
+  "dialect": "postgresql",
   "entries": [
     {
       "idx": 0,
-      "version": "5",
-      "when": 1726575177596,
-      "tag": "0000_natural_boomerang",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1726577044904,
-      "tag": "0001_natural_hawkeye",
+      "version": "7",
+      "when": 1726640133284,
+      "tag": "0000_flawless_captain_universe",
       "breakpoints": true
     }
   ]

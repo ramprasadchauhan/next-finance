@@ -52,6 +52,7 @@ const Navigation = () => {
             size="sm"
             variant="outline"
             className=" font-normal text-white/10 bg-white/20 hover:text-black border-none focus-visible:ring-offset-0 focus-visible:ring-transparent outline-none text-white focus:bg-white/30 transition"
+            type="button"
           >
             <Menu className="size-4" />
           </Button>
@@ -76,7 +77,7 @@ const Navigation = () => {
 
   return (
     <nav
-      className="hiddetn lg:flex items-center gap-x-2 
+      className="hiddetn lg:flex items-center gap-x-2
     overflow-x-auto"
     >
       {routes.map((route) => (
