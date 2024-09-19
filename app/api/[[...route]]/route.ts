@@ -1,16 +1,15 @@
 // import { z } from 'zod'
 // import { zValidator } from '@hono/zod-validator'
-import { Hono } from 'hono'
-import { handle } from 'hono/vercel'
-import { clerkMiddleware, getAuth } from '@hono/clerk-auth'
-import authors from './authors'
-import books from './books'
-import accounts from "./accounts"
+import { Hono } from "hono";
+import { handle } from "hono/vercel";
+import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
+import authors from "./authors";
+import books from "./books";
+import accounts from "./accounts";
 
-export const runtime = 'edge'
+export const runtime = "edge";
 
-const app = new Hono().basePath('/api')
-
+const app = new Hono().basePath("/api");
 
 // app
 // .get('/hello',  (c) => {
@@ -18,11 +17,11 @@ const app = new Hono().basePath('/api')
 //     message: 'Hello Next.js!',
 //   })
 // })
-// .get("/hello/:test", 
+// .get("/hello/:test",
 //     zValidator("param", z.object({
 //         test: z.string()
 //     })),
-    
+
 //     (c) => {
 //     const {test} = c.req.valid("param");
 //     return c.json({
@@ -30,13 +29,13 @@ const app = new Hono().basePath('/api')
 //         test: test
 //     })
 // })
-// .post("/create/:postId", 
+// .post("/create/:postId",
 //   zValidator("json", z.object({
 //     name: z.string(),
 //     userId: z.string()
 //   })),
 //   zValidator("param", z.object({
-    
+
 //     postId: z.string()
 //   })),
 //   (c) => {
@@ -47,25 +46,26 @@ const app = new Hono().basePath('/api')
 //   })
 // })
 
-app.route('/authors', authors)
-app.route('/books', books)
-app
-.get('/hello', clerkMiddleware(),  (c) => {
-  const auth = getAuth(c)
-  if(!auth?.userId){
+app.route("/authors", authors);
+app.route("/books", books);
+app.get("/hello", clerkMiddleware(), (c) => {
+  const auth = getAuth(c);
+  if (!auth?.userId) {
     return c.json({
-      error: "Unauthorized"
-    })
+      error: "Unauthorized",
+    });
   }
   return c.json({
-    message: 'Hello Next.js!',
-    userId: auth.userId
-  })
-})
+    message: "Hello Next.js!",
+    userId: auth.userId,
+  });
+});
 
-const routes = app.route("/accounts", accounts)
+const routes = app.route("/accounts", accounts);
 
-export const GET = handle(app)
-export const POST = handle(app)
+export const GET = handle(app);
+export const POST = handle(app);
+export const PATCH = handle(app);
+export const DELETE = handle(app);
 
-export type AppType = typeof routes
+export type AppType = typeof routes;

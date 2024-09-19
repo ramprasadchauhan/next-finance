@@ -5,6 +5,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 import { InferResponseType } from "hono";
 import { client } from "@/lib/hono";
+import { Action } from "./actions";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -50,5 +51,9 @@ export const columns: ColumnDef<ResponseType>[] = [
         </Button>
       );
     },
+  },
+  {
+    id: "actions",
+    cell: ({ row }) => <Action id={row.original.id} />,
   },
 ];
