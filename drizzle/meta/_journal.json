@@ -8,6 +8,13 @@
       "when": 1726640133284,
       "tag": "0000_flawless_captain_universe",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1726731925139,
+      "tag": "0001_zippy_the_professor",
+      "breakpoints": true
     }
   ]
 }
